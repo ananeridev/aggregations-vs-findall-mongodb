@@ -16,10 +16,10 @@ const heroesData = [
 
 Hero.insertMany(heroesData)
   .then((result) => {
-    console.log('Dados inseridos com sucesso:', result);
+    console.log("Heroes successfuly inserted:", result);
     mongoose.connection.close();
   })
   .catch((error) => {
-    console.error('Erro ao inserir dados:', error);
+    console.error("Error: ", error);
     mongoose.connection.close();
   });
