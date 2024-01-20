@@ -12,6 +12,10 @@ describe('Database Connection', () => {
     }
   });
 
+  afterEach(async () => {
+    await mongoose.connection.close();
+  });
+
   it('should be connected to the database', async () => {
     const isConnected = mongoose.connection.readyState;
     expect(isConnected).toBe(1);
