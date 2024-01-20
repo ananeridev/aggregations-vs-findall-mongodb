@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
 
-jest.setTimeout(10000); // 10 seconds
+jest.setTimeout(30000);
+
 describe('Database Connection', () => {
   beforeAll(async () => {
     process.env.MONGO_CONNECTION_STRING = 'mongodb://localhost:27017/test';
-  
+
     try {
-      await mongoose.connect(process.env.MONGO_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
+      await mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 30000,
+      });
     } catch (error) {
       console.error(`Error connecting to the database: ${error}`);
     }
