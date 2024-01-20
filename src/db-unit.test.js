@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-jest.setTimeout(30000);
+jest.setTimeout(30000); 
 
 describe('Database Connection', () => {
   beforeAll(async () => {
@@ -10,8 +10,10 @@ describe('Database Connection', () => {
       await mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 30000,
+        serverSelectionTimeoutMS: 30000, 
       });
+
+      await new Promise(resolve => setTimeout(resolve, 500));
     } catch (error) {
       console.error(`Error connecting to the database: ${error}`);
     }
