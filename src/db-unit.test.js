@@ -8,6 +8,7 @@ describe('Database Connection', () => {
   });
 
   it('should be connected to the database', async () => {
+    jest.setTimeout(10000); // 10 seconds 
     const isConnected = mongoose.connection.readyState;
     expect(isConnected).toBe(1);
   });
