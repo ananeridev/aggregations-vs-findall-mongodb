@@ -4,8 +4,12 @@ jest.setTimeout(10000); // 10 seconds
 describe('Database Connection', () => {
   beforeAll(async () => {
     process.env.MONGO_CONNECTION_STRING = 'mongodb://localhost:27017/test';
-
-    await mongoose.connect(process.env.MONGO_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
+  
+    try {
+      await mongoose.connect(process.env.MONGO_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
+    } catch (error) {
+      console.error(`Error connecting to the database: ${error}`);
+    }
   });
 
   it('should be connected to the database', async () => {
