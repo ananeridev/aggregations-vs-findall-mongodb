@@ -14,12 +14,13 @@ const heroesData = [
   { name: "Captain Marvel", power: "Cosmic powers" },
 ];
 
-Hero.insertMany(heroesData)
-  .then((result) => {
-    console.log("Heroes successfuly inserted:", result);
-    mongoose.connection.close();
-  })
-  .catch((error) => {
-    console.error("Error: ", error);
-    mongoose.connection.close();
-  });
+module.exports.seedHeroes = function() {
+  Hero.insertMany(heroesData)
+    .then((result) => {
+      console.log("Heroes successfuly inserted:", result);
+      mongoose.connection.close();
+    })
+    .catch((error) => {
+      console.error('Error on seeding:', error);
+    });
+};
