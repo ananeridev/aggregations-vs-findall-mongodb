@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const mongoose = require('mongoose');
 const { runAggregation } = require('./scripts/aggregate');
 const { runFindAll } = require('./scripts/findall');
@@ -32,6 +33,8 @@ async function connectToDatabaseAndAggregate() {
   }
 }
 
-mongoose.connect(connectionString)
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(connectToDatabaseAndAggregate)
-  .catch(error => console.error('Erro na conexão:', error));
+  .catch(error => {
+    console.error('Erro na conexão:', error);
+  });

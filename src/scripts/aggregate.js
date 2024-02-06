@@ -8,8 +8,6 @@ module.exports.runAggregation = async function(heroSchema) {
     ]);
 
     console.log('Result of aggregation:', aggregationResult);
-
-    mongoose.connection.close();
   } catch (error) {
     console.error('Error on aggregation:', error);
   }
