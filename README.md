@@ -13,9 +13,9 @@ The execution time of each operation is measured and displayed in the console fo
 
 * Configure the MongoDB connection string in the MONGO_CONNECTION_STRING environment variable.
 
-* Run the seeding script with npm run seed.
+* Run docker-compose up --build to up the mongodb
 
-* Run the comparison script with npm start.
+* Run node index.js to see the operations in action
 
 ## Requirements
 * Node.js
