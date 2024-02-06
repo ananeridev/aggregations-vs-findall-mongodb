@@ -23,3 +23,7 @@ The execution time of each operation is measured and displayed in the console fo
 * MongoDB
 
 **This project is useful for developers who are learning about MongoDB and want to understand the differences between aggregation and find operations, or for developers who are trying to optimize the performance of their MongoDB queries.**
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
